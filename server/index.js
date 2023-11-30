@@ -2,9 +2,25 @@ const express = require('express');
 const app = express();
 const mongodb = require('mongodb');
 const mongoose = require('mongoose');
+const User = require('./models/User');
 const cors = require('cors');
 app.use(cors());
 app.use(express.json());
+
+// handle db connection
+var connecionString ="mongodb+srv://na707413:123password123@cluster0.8aeumbk.mongodb.net/test" 
+
+try {
+    mongoose.connect(connecionString, {
+        useNewUrlParser: true,
+        useUnifiedTopology: true,
+        /*useCreateIndex: true,
+        useFindAndModify: false,*/
+    });
+} catch(error) {
+    console.error(error);
+}
+
 
 app.listen(5000, () => {
 	console.log("listening from port 5000");
