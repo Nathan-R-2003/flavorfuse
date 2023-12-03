@@ -2,7 +2,10 @@ POST http://localhost:5000/users
 Content-Type: application/json
 
 {
-	"name": "Test User",
+	"name": "Test User 2",
 	"email": "test@gmail.com",
 	"password": "password123"
 }
+
+###
+GET http://localhost:5000/
