@@ -13,10 +13,9 @@ var connecionString ="mongodb+srv://na707413:123password123@cluster0.8aeumbk.mon
 try {
     mongoose.connect(connecionString, {
         useNewUrlParser: true,
-        useUnifiedTopology: true,
-        /*useCreateIndex: true,
-        useFindAndModify: false,*/
+        useUnifiedTopology: true
     });
+    console.log("connection succesful!");
 } catch(error) {
     console.error(error);
 }
@@ -28,4 +27,14 @@ app.listen(5000, () => {
 
 app.get("/", async (req, res) => {
 	res.send("Hello World");
+})
+
+app.post("/users", async (req, res) => {
+    try{
+        console.log(req.body);
+        const user = User.create(req.body)
+        res.status(200).json(user);
+    }catch(e){
+        console.log(e);
+    }
 })
