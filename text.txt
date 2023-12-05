@@ -1,1 +1,2 @@
-hello world
+FlavorFuse is a personal project intended for me to learn MERN
+It's an app were you can 
