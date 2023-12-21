@@ -1,17 +1,18 @@
 import './pages.css'
 import pic from '../assets/food.jpeg'
-import { getMaxListeners } from '../../../server/models/User';
+import axios from 'axios'
+
 const Welcome = () => {
 
 	const email = "test3@gmail.com";
 	const password = "password123";
 
 	const handleLogin = () => {
-		
+		return window.location.assign("/");
 	}
 
 	const handleSignup = () => {
-		
+		return window.location.assign("/");
 	}
 
 	return(
