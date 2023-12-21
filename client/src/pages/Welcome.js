@@ -1,6 +1,18 @@
-import './welcome.css'
+import './pages.css'
 import pic from '../assets/food.jpeg'
+import { getMaxListeners } from '../../../server/models/User';
 const Welcome = () => {
+
+	const email = "test3@gmail.com";
+	const password = "password123";
+
+	const handleLogin = () => {
+		
+	}
+
+	const handleSignup = () => {
+		
+	}
 
 	return(
 		<main>
@@ -8,19 +20,20 @@ const Welcome = () => {
 				<div>
 					<img src = {pic} alt = "Logo" />
 				</div>
-				<div>
+				<div className = "login-container">
 					<header>
 						<h1>
 							Welcome to FlavorFuse!
 						</h1>
 					</header>
-					<button>
+					
+					<button onClick={handleLogin}>
 						Login
 					</button>
 					<p>
 						-or-
 					</p>
-					<button>
+					<button onClick={handleSignup}>
 						Signup
 					</button>
 				</div>

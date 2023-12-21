@@ -1,0 +1,28 @@
+.welcome-container{
+	display: flex;
+	flex-direction: row;
+	background-color: #1c2729;
+	position:absolute;
+	height: 100%;
+	width: 100%;
+}
+
+.missing-container{
+	background-color: #1c2729;
+	position:absolute;
+	height: 100%;
+	width: 100%;
+}
+
+.missing-text{
+	color:beige;
+	font-family: Arial, sans-serif;
+	font-size:xx-large;
+	font-weight: bold;
+}
+
+.login-container{
+	color:beige;
+	font-family: Arial, sans-serif;
+	margin-left: 100px;
+}
