@@ -29,11 +29,18 @@
 }
 
 .signup-container{
+	background-image: url("../assets/login.jpg");
+	position:absolute;
+	background-size: cover;
 	height:100%;
 	width:100%;
 }
 
 .login-container{
-	margin-left:0%;
+	background-image: url("../assets/login.jpg");
+	position:absolute;
+	background-size: cover;
+	height:100%;
+	width:100%;
 }
 
