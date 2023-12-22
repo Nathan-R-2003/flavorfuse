@@ -20,17 +20,18 @@ const Welcome = () => {
 				<div className = "welcome-container">
 					<header>
 						<h1>
-							Sign in or create a account
+							Welcome to FlavorFuse!
 						</h1>
+						<br></br>
 					</header>
 					
-					<button onClick={handleLogin}>
+					<button onClick={handleLogin} className="welcome-button">
 						Login
 					</button>
-					<p>
-						-or-
+					<p style={{marginLeft: "130px"}}>
+						 -or-
 					</p>
-					<button onClick={handleSignup}>
+					<button onClick={handleSignup} className="welcome-button">
 						Signup
 					</button>
 				</div>
