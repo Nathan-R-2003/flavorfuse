@@ -1,4 +1,4 @@
-.welcome-container{
+.welcome-background{
 	display: flex;
 	flex-direction: row;
 	background-color: #1c2729;
@@ -6,6 +6,7 @@
 	height: 100%;
 	width: 100%;
 }
+
 
 .missing-container{
 	background-color: #1c2729;
@@ -21,8 +22,18 @@
 	font-weight: bold;
 }
 
-.login-container{
+.welcome-container{
 	color:beige;
 	font-family: Arial, sans-serif;
 	margin-left: 100px;
 }
+
+.signup-container{
+	height:100%;
+	width:100%;
+}
+
+.login-container{
+	margin-left:0%;
+}
+
