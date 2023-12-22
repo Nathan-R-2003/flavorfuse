@@ -15,13 +15,12 @@ const Welcome = () => {
 	return(
 		<main>
 			<div className = "welcome-background">
-				<div>
-					<img src = {pic} alt = "Logo" />
+				<div className="welcome-pic">
 				</div>
 				<div className = "welcome-container">
 					<header>
 						<h1>
-							Welcome to FlavorFuse!
+							Sign in or create a account
 						</h1>
 					</header>
 					

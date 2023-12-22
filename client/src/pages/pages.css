@@ -1,12 +1,19 @@
 .welcome-background{
 	display: flex;
 	flex-direction: row;
-	background-color: #1c2729;
+	background-color:cornsilk;
 	position:absolute;
 	height: 100%;
 	width: 100%;
 }
 
+.welcome-pic{
+	height:100%;
+	width:35%;
+	background-image: url("../assets/welcome.jpg.jpg");
+	background-size:contain;
+	background-repeat: no-repeat;
+}
 
 .missing-container{
 	background-color: #1c2729;
@@ -17,15 +24,15 @@
 
 .missing-text{
 	color:beige;
-	font-family: Arial, sans-serif;
+	font-family: Helvetiva Neue, sans-serif;
 	font-size:xx-large;
 	font-weight: bold;
 }
 
 .welcome-container{
-	color:beige;
-	font-family: Arial, sans-serif;
-	margin-left: 100px;
+	color:rgb(0, 0, 0);
+	font-family: Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif;
+	margin-left: 50px;
 }
 
 .signup-container{
