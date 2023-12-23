@@ -13,9 +13,7 @@ function Login() {
 		e.preventDefault()
 		axios.post('http://localhost:5000/login', {email, password}).then(res => {
 
-			console.log(res);
-
-			if(res.statusText === 'OK')
+			if(res.data.msg === 'Correct info!')
 			{
 				setLoginResponse(res)
 				return window.location.assign("/home")
@@ -33,7 +31,7 @@ function Login() {
 			else
 				console.log("Something wrong happened")
 
-		}).catch(err=>{console.log("API didn't work" + err)})
+		}).catch(err=>{console.log("API didn't work " + err)})
 
 	}
 

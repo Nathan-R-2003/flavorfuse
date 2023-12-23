@@ -16,6 +16,13 @@ app.listen(5000, () => {
 	console.log("listening from port 5000");
 })
 
+// Global middleware function (logs the time, along with request method and route)
+app.use( (req, res, next) => { 
+    //console.log('Time:', Date.now(), '; Request Type:', req.method);
+    console.log('Request Type:', req.method, ', Route:', req.path);
+    next()
+})
+
 app.get("/", async (req, res) => {
 	res.send("Hello World");
 })
@@ -37,13 +44,17 @@ app.post("/login", async (req, res) => {
         const user = await User.findOne({email: req.body.email});
 
         if(!user) {
-            res.status(401).json({msg: "Wrong email!"});
+            res.status(200).json({msg: "Wrong email!"});
         } else if(user.password != req.body.password) {
-            res.status(402).json({msg: "Wrong password!"});
+            res.status(200).json({msg: "Wrong password!"});
         } else {
-            res.status(200).json(user);
+            res.status(200).json({msg: "Correct info!", name: user.name, id: user._id});
         }
     }catch(e){
         console.error(e);
     }
 })
+
+
+
+    
