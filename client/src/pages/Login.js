@@ -1,7 +1,7 @@
 import './pages.css'
 import pic from '../assets/login.jpg'
 import axios from 'axios'
-import {useState} from 'react'
+import {useState, useEffect} from 'react'
 
 function Login() {
 
@@ -11,7 +11,7 @@ function Login() {
 
 	const handleSubmit = (e) => {
 		e.preventDefault()
-		axios.post('http://localhost:5000/login', {email,password}).then(res => {
+		axios.post('http://localhost:5000/login', {email, password}).then(res => {
 
 			console.log(res);
 
