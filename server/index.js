@@ -32,7 +32,7 @@ app.post("/signup", async (req, res) => {
 
 
 
-app.get("/login", async (req, res) => {
+app.post("/login", async (req, res) => {
     try{
         const user = await User.findOne({email: req.body.email});
 
