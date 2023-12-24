@@ -4,6 +4,7 @@ const mongodb = require('mongodb');
 const mongoose = require('mongoose');
 const connectDB = require('./connectDB');
 const User = require('./models/User');
+const Recipe = require('./models/Recipe');
 const cors = require('cors');
 app.use(cors());
 app.use(express.json());
@@ -64,6 +65,32 @@ app.post("/login", async (req, res) => {
     }
 })
 
+app.post('/new_recipe', async (req,res) =>{
+    try{
+        const recipe = await Recipe.create(req.body);
 
+        if(recipe == null)
+            res.status(200).json({msg: "Something went wrong!"})
+
+        res.status(200).json({msg: "Recipe created succesfully!"});
+
+    }catch(e){
+        console.error(e);
+    }
+})
+
+app.get('/get_recipes', async (req,res) => {
+    try{
+        const recipes = await Recipe.find();
+
+        if(recipes.length == 0)
+            res.status(200).json({msg: "No recipes!"})
+
+        res.status(200).json(recipes);
+
+    }catch(e){
+        console.error(e)
+    }
+})
 
     
