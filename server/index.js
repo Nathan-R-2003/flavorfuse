@@ -30,8 +30,17 @@ app.get("/", async (req, res) => {
 // creates a new user
 app.post("/signup", async (req, res) => {
     try{
-        const user = await User.create(req.body)
-        res.status(200).json(user);
+        const verify = await User.findOne({email: req.body.email});
+
+        if(verify != null)
+        {
+            res.status(200).json({msg: "Email in use!"})
+        }
+
+        const user = await User.create({name: req.body.name,
+                                        email: req.body.email, 
+                                        password: req.body.password})
+        res.status(200).json({msg: "User created!", name: user.name, email: user.email});
     }catch(e){
         console.error(e);
     }

@@ -40,6 +40,19 @@ function Login() {
 			<div className="login-container">
 				<div className = "login-form-div">
 					<form onSubmit={handleSubmit}>
+						<div style={{display:"flex", alignItems:"center", flexDirection:"column"}}>
+							<p className="login-tag">
+								Log in
+							</p>
+							<br/>
+							<p style={{display:"inline", fontFamily:"Palatino, Palatino Linotype, Palatino LT STD, Book Antiqua, Georgia, serif"}}>
+								New to FlavorFuse? &nbsp;
+								<a href = "http://localhost:3000/signup">
+									Sign up
+								</a>
+							</p>
+
+						</div>
 						<input
 							className = "input-form"
 							id = "addEmail"
@@ -61,7 +74,7 @@ function Login() {
 						/>
 						<br/>
 						<button type = "submit" className = "submit-button">
-							Submit
+							Log in
 						</button>
 							
 					</form>
