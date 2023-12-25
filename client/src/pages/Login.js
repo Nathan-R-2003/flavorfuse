@@ -9,6 +9,7 @@ function Login() {
 
 	const [email, setEmail] = useState("")
 	const [password, setPassword] = useState("")
+	const [showPassword, setShowPassword] = useState(false)
 	const [loginResponse, setLoginResponse] = useState()
 
 	const handleSubmit = (e) => {
@@ -18,7 +19,7 @@ function Login() {
 			if(res.data.msg === 'Correct info!')
 			{
 				setLoginResponse(res)
-				return window.location.assign("/home")
+				return window.location.assign("/")
 			}	
 			else if(res.data.msg === "Wrong email!")
 			{
@@ -69,11 +70,17 @@ function Login() {
 						<input
 							className = "input-form"
 							id = "addPassword"
-							type = "text"
+							type = {showPassword ? "text" : "password"}
 							placeholder = "Password"
 							required
 							value={password}                        
                             onChange={(e) => setPassword(e.target.value)}
+						/>
+						<input
+							id = "box"
+							type = "checkbox"
+							value = {showPassword}
+							onChange = {() => setShowPassword((prev) => !prev)}
 						/>
 						<br/>
 						<button type = "submit" className = "submit-button">

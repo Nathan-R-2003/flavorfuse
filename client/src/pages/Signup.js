@@ -7,6 +7,7 @@ import Footer from '../components/Footer'
 
 function Signup() {
 
+	const [showPassword, setShowPassword] = useState(false)
 	const [email, setEmail] = useState("")
 	const [password, setPassword] = useState("")
 	const [name, setName] = useState("")
@@ -19,7 +20,7 @@ function Signup() {
 			if (res.data.msg === 'User created!'){
 				console.log("Signup succesful")
 				setLoginResponse(res)
-				return window.location.assign("/home")
+				return window.location.assign("/")
 			} 
 			else if(res.data.msg === "Email in use!"){
 				console.log("Email already in use!")
@@ -72,11 +73,17 @@ function Signup() {
 						<input
 							className = "input-form"
 							id = "addPassword"
-							type = "text"
+							type = {showPassword ? "text" : "password"}
 							placeholder = "Password"
 							required
 							value={password}                        
                             onChange={(e) => setPassword(e.target.value)}
+						/>
+						<input
+							id = "box"
+							type = "checkbox"
+							value = {showPassword}
+							onChange = {() => setShowPassword((prev) => !prev)}
 						/>
 						<br/>
 						<button type = "submit" className = "submit-button">

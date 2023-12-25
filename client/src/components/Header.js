@@ -5,7 +5,7 @@ function Header() {
 
 	return(
 		<div className = 'header-container'>
-			<a href = 'http://localhost:3000/home'>
+			<a href = 'http://localhost:3000/'>
 				<img src = {pic} alt = 'Logo' className = 'logo'/>
 			</a>
 
