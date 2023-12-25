@@ -2,6 +2,8 @@ import './pages.css'
 import pic from '../assets/login.jpg'
 import axios from 'axios'
 import {useState, useEffect} from 'react'
+import Header from '../components/Header'
+import Footer from '../components/Footer'
 
 function Login() {
 
@@ -38,6 +40,7 @@ function Login() {
 	return (
 		<main>
 			<div className="login-container">
+				<Header/>
 				<div className = "login-form-div">
 					<form onSubmit={handleSubmit}>
 						<div style={{display:"flex", alignItems:"center", flexDirection:"column"}}>
@@ -47,7 +50,7 @@ function Login() {
 							<br/>
 							<p style={{display:"inline", fontFamily:"Palatino, Palatino Linotype, Palatino LT STD, Book Antiqua, Georgia, serif"}}>
 								New to FlavorFuse? &nbsp;
-								<a href = "http://localhost:3000/signup">
+								<a href = "http://localhost:3000/signup" style = {{textDecoration:'none'}}>
 									Sign up
 								</a>
 							</p>
@@ -79,6 +82,7 @@ function Login() {
 							
 					</form>
 				</div>
+				<Footer/>
 			</div>
 		</main>
 	);

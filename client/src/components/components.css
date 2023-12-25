@@ -1,0 +1,30 @@
+.header-container{
+	background-color: azure;
+	border-bottom-left-radius: 5px;
+	border-bottom-right-radius: 5px;
+	border: none;
+	width: 100%;
+	height: 66px;
+	display: flex;
+	flex-direction: row;
+	justify-content:space-between;
+	align-items: center;
+}
+
+.footer-container{
+	background-color: azure;
+	border: none;
+	width: 100%;
+	height: 7%;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+}
+
+.logo{
+	height: 65px;
+}
+
+.logo:hover{
+	cursor: pointer;
+}

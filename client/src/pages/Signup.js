@@ -2,6 +2,8 @@ import './pages.css'
 import background from '../assets/login.jpg'
 import axios from 'axios'
 import {useState, useEffect} from 'react'
+import Header from '../components/Header'
+import Footer from '../components/Footer'
 
 function Signup() {
 
@@ -31,7 +33,8 @@ function Signup() {
 	return (
 		<main>
 			<div className="signup-container">
-			<div className = "login-form-div">
+				<Header/>
+				<div className = "login-form-div">
 					<form onSubmit={handleSubmit}>
 						<div style={{display:"flex", alignItems:"center", flexDirection:"column"}}>
 							<p className="login-tag">
@@ -40,7 +43,7 @@ function Signup() {
 							<br/>
 							<p style={{display:"inline", fontFamily:"Palatino, Palatino Linotype, Palatino LT STD, Book Antiqua, Georgia, serif"}}>
 								Already have an account? &nbsp;
-								<a href = "http://localhost:3000/login">
+								<a href = "http://localhost:3000/login" style = {{textDecoration:'none'}}>
 									Log in
 								</a>
 							</p>
@@ -82,6 +85,7 @@ function Signup() {
 							
 					</form>
 				</div>
+				<Footer/>
 			</div>
 		</main>
 	);

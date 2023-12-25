@@ -43,8 +43,9 @@
 	height:100%;
 	width:100%;
 	display: flex;
-	justify-content: center;
+	justify-content: space-between;
 	align-items:center;
+	flex-direction: column;
 }
 
 .login-container{
@@ -54,8 +55,9 @@
 	height:100%;
 	width:100%;
 	display: flex;
-	justify-content: center;
+	justify-content: space-between;
 	align-items:center;
+	flex-direction: column;
 }
 
 .welcome-button{
@@ -108,3 +110,4 @@
 	font-weight:bold;
 	font-family: Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif;
 }
+

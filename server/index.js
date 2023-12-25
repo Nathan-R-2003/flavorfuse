@@ -83,9 +83,6 @@ app.get('/get_recipes', async (req,res) => {
     try{
         const recipes = await Recipe.find();
 
-        if(recipes.length == 0)
-            res.status(200).json({msg: "No recipes!"})
-
         res.status(200).json(recipes);
 
     }catch(e){
