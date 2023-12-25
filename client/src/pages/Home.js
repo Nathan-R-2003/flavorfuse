@@ -1,35 +1,49 @@
-import {useState} from 'react'
+import {useState, useEffect} from 'react'
 import axios from 'axios'
+
 
 
 function Home() {
 
 	const [list, setList] = useState([]);
+	const [query, setQuery] = useState('');
 
-	axios.get('http://localhost:5000/get_recipes').then(res=>{
-		if (res.statusText === 'OK') {
-			setList(res.data);
+	
+	useEffect(() => {
+		const fetchRecipes = async () => {
+			var result;
+			try{
+				result = await axios.get('http://localhost:5000/get_recipes')
+				if(result.statusText === 'OK')
+				{
+					setList(result.data)
+				}
+				else{
+					console.log("something went wrong with api")
+				}
+			} catch(error){
+				console.log(error)
+			}
 		}
 	
-	}).catch(err=>{console.log(err)})
+		fetchRecipes()
+	}, [query]) 
+
 
 	return(
 		<main>
-			<p>Home</p>
 			<br/>
-			<ul>
-				{list.map((item) => {
-					<li key ={item._id}>
-						<p>
-							Recipe name: {item.name}
-						</p>
-						<br></br>
-						<p>
-							Recipe: {item.recipe}
-						</p>
-					</li>
-				})}
-			</ul>
+			{list?.map(item => 
+				<div key = {item._id}>
+					<p>
+						Recipe: {item.recipe}
+					</p>
+					<br>
+					</br>
+					<p>
+						Name: {item.name}
+					</p>
+				</div>)}
 		</main>
 	)
 }
