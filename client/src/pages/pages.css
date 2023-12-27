@@ -111,3 +111,29 @@
 	font-family: Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif;
 }
 
+.home-background{
+	background-color: white;
+	display: flex;
+	flex-direction: row;
+}
+
+.recipe-container{
+	background-color: beige;
+	margin-left: 20px;
+	margin-right: 20px;
+	margin-top:20px;
+	height:200px;
+	width:350px;
+	display:flex;
+	flex-direction: column;
+}
+
+.recipe-container-top{
+	display:flex;
+	flex-direction: row;
+	height: 180px;
+}
+
+.pic-container{
+	height:80px;
+}

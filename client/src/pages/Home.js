@@ -1,5 +1,6 @@
 import {useState, useEffect} from 'react'
 import axios from 'axios'
+import foodPic from '../assets/food.jpeg'
 
 
 
@@ -32,18 +33,33 @@ function Home() {
 
 	return(
 		<main>
-			<br/>
-			{list?.map(item => 
-				<div key = {item._id}>
-					<p>
-						Recipe: {item.recipe}
-					</p>
-					<br>
-					</br>
-					<p>
-						Name: {item.name}
-					</p>
+			<div className="home-background">
+				{list?.map(item => 
+				<div className="recipe-container" key = {item._id}>
+					<div className="recipe-container-top">
+						<div className="pic-container">
+							<img src= {foodPic} alt = 'logo' style={{height:"120px"}}/>
+						</div>
+						<div style={{display:"flex", flexDirection:"column", alignItems:"right", width:"100%"}}>
+							<p style={{display:"inline", marginRight:"10px"}}>
+								{item.name}
+							</p>
+							<br>
+							</br>
+							<p style={{display:"inline", marginRight:"10px"}}>
+								{item.recipe}
+							</p>
+						</div>
+
+					</div>
+					<div>
+						<input
+							type="checkbox"
+							value="false"
+						/>
+					</div>
 				</div>)}
+			</div>
 		</main>
 	)
 }
