@@ -4,6 +4,7 @@ import axios from 'axios'
 import {useState, useEffect} from 'react'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
+var bcrypt = require('bcryptjs');
 
 function Login() {
 
@@ -14,22 +15,27 @@ function Login() {
 
 	const handleSubmit = (e) => {
 		e.preventDefault()
-		axios.post('http://localhost:5000/login', {email, password}).then(res => {
+		axios.post('http://localhost:5000/login', {email}).then(res => {
 
-			if(res.data.msg === 'Correct info!')
-			{
-				setLoginResponse(res)
-				return window.location.assign("/")
-			}	
-			else if(res.data.msg === "Wrong email!")
+			if(res.data.msg === "Wrong email!")
 			{
 				setLoginResponse(res)
 				console.log(res.data.msg)
 			}
-			else if(res.data.msg === "Wrong password!")
+			else if(res.data.msg === "Correct email!")
 			{
 				setLoginResponse(res)
 				console.log(res.data.msg)
+				if (bcrypt.compareSync(password,res.data.password)) 
+				{
+					console.log('Login succcesful!')
+					setLoginResponse(res)
+					return window.location.assign("/")
+				}
+				else{
+					setLoginResponse(res)
+					console.log("Wrong password")
+				}
 			}
 			else
 				console.log("Something wrong happened")

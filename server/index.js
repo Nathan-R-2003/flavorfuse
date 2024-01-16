@@ -40,12 +40,9 @@ app.post("/signup", async (req, res) => {
             return;
         }
 
-        var salt = bcrypt.genSaltSync(10);
-		var hash = bcrypt.hashSync(req.body.password, salt);
-
         const user = await User.create({name: req.body.name,
                                         email: req.body.email, 
-                                        password: hash})
+                                        password: req.body.hash})
         res.status(200).json({msg: "User created!", name: user.name, email: user.email});
     }catch(e){
         console.error(e);
@@ -61,11 +58,8 @@ app.post("/login", async (req, res) => {
         if(!user) {
             res.status(200).json({msg: "Wrong email!"});
             return;
-        } else if(!bcrypt.compareSync(req.body.password, user.password)) {
-            res.status(200).json({msg: "Wrong password!"});
-            return;
         } else {
-            res.status(200).json({msg: "Correct info!", name: user.name, id: user._id});
+            res.status(200).json({msg: "Correct email!", name: user.name, id: user._id, password: user.password});
         }
     }catch(e){
         console.error(e);

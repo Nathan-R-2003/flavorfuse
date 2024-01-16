@@ -4,6 +4,7 @@ import axios from 'axios'
 import {useState, useEffect} from 'react'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
+var bcrypt = require('bcryptjs');
 
 function Signup() {
 
@@ -15,7 +16,10 @@ function Signup() {
 
 	const handleSubmit = (e) => {
 		e.preventDefault()
-		axios.post('http://localhost:5000/signup', {name, email, password}).then(res => {
+		var salt = bcrypt.genSaltSync(10);
+		var hash = bcrypt.hashSync(password, salt);
+		
+		axios.post('http://localhost:5000/signup', {name, email, hash}).then(res => {
 
 			if (res.data.msg === 'User created!'){
 				console.log("Signup succesful")
